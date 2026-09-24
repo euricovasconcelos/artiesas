@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="bgEv" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#1B3B78"/><stop offset="1" stop-color="#0F1B3D"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#bgEv)"/>
+  <!-- holofote -->
+  <path d="M200 -20 L120 250 L280 250 Z" fill="#FFFFFF" opacity="0.05"/>
+  <!-- pódio -->
+  <rect x="150" y="176" width="100" height="44" fill="#FFFFFF" opacity="0.10"/>
+  <rect x="95"  y="196" width="55"  height="24" fill="#FFFFFF" opacity="0.08"/>
+  <rect x="250" y="196" width="55"  height="24" fill="#FFFFFF" opacity="0.08"/>
+  <!-- confettis -->
+  <circle cx="90"  cy="60"  r="4" fill="#ECB512" opacity="0.8"/>
+  <circle cx="140" cy="40"  r="3" fill="#F5CF63" opacity="0.7"/>
+  <circle cx="300" cy="52"  r="4" fill="#ECB512" opacity="0.8"/>
+  <circle cx="255" cy="86"  r="3" fill="#F5CF63" opacity="0.6"/>
+  <circle cx="325" cy="100" r="3" fill="#ECB512" opacity="0.6"/>
+  <!-- traço dourado assinatura -->
+  <circle cx="200" cy="112" r="58" fill="none" stroke="#C9A227" stroke-width="3" opacity="0.5"/>
+  <text x="200" y="238" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#E4CB7A" opacity="0.85">Fotografia do evento</text>
+</svg>

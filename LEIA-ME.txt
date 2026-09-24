@@ -1,0 +1,168 @@
+PORTAL ARTIESAS — COMO FUNCIONA E COMO ATUALIZAR
+=================================================
+Versão de setembro de 2026 · alinhada com o Programa de Parceiros revisto
+e com o novo logótipo ARTIESAS.
+
+O portal é feito de dois ficheiros e duas pastas:
+
+  index.html         → o site em si (design e motor). NÃO precisa de mexer.
+  dados.js           → TODOS os dados que mudam. É AQUI que edita.
+  imagens/           → fotos e logótipos.
+  arquivos/          → documentos para download (PDF do programa de parceiros).
+  dados-EXEMPLO.js   → um ficheiro JÁ PREENCHIDO com dados fictícios, só para
+                       ver como o site fica "cheio". Serve de modelo.
+
+VER O EXEMPLO RAPIDAMENTE:
+  No index.html, quase na última linha, troque
+     <script src="dados.js"></script>
+  por
+     <script src="dados-EXEMPLO.js"></script>
+  Guarde e abra o site: verá atletas, treinadores, patrocinadores e a barra de
+  angariação preenchidos. Para voltar ao normal, desfaça a troca.
+
+
+--------------------------------------------------
+O QUE MUDOU NESTA VERSÃO
+--------------------------------------------------
+NOVO LOGÓTIPO
+  imagens/logo-artiesas.png       → logótipo completo, versão CLARA
+                                    (usado no destaque inicial e no rodapé,
+                                    sobre fundo azul)
+  imagens/logo-artiesas-cor.png   → logótipo completo a cores, para fundos
+                                    claros (documentos, e-mails, impressão)
+  imagens/simbolo-artiesas.png    → só a figura amarela (barra do topo)
+  imagens/favicon.png             → ícone do separador do navegador
+
+SECÇÕES NOVAS (todas alimentadas pelo dados.js)
+  · A nossa trajetória (linha do tempo 2012 → 2027)
+  · Palmarés completo (Gym for Life Portugal, Festa Nacional, Territoriais)
+  · O projeto em números (valor atual vs. meta 2026–2027)
+  · Porquê apoiar + os 5 canais onde a marca aparece
+  · Tabela completa de contrapartidas por nível (botão "Ver tabela completa")
+  · World Gymnaestrada Lisboa 2027: 4 pacotes por evento
+  · A conta que queremos fechar: orçamento de 57.500 € + barra de angariação
+  · Vantagem fiscal: patrocínio vs. mecenato + Artigo 63.º do EBF
+  · Transparência (relatório de impacto) e regras gerais
+
+CORREÇÕES DE CONTEÚDO
+  · O objetivo da época passou a ser a WORLD GYMNAESTRADA 2027, em Lisboa
+    (antes o site dizia "Campeonato Nacional").
+  · Convites VIP corrigidos: Diamante 5, Ouro 3, Prata 2, Bronze 2.
+  · Vagas por nível: Diamante 1 (exclusivo), Ouro 3, Prata 6, Bronze ilimitado.
+  · E-mail da Associação de Pais: aesas2027@gmail.com
+  · PDF do programa substituído pela versão revista (12 páginas).
+  · Cada evento em "competicoes" (Agenda/Apresentações) já aceita uma foto,
+    tal como as atletas e os treinadores — basta preencher o campo "foto".
+
+
+--------------------------------------------------
+ATUALIZAR OS DADOS
+--------------------------------------------------
+1. Abra o ficheiro "dados.js" num editor de texto simples
+   (Bloco de Notas, TextEdit, VS Code... qualquer um serve).
+2. Cada registo é um bloco entre chavetas { }, separado do seguinte por
+   vírgula. Troque só o texto entre aspas; não apague vírgulas nem aspas.
+3. Guarde e atualize a página no navegador.
+
+O QUE VAI MUDAR COM MAIS FREQUÊNCIA:
+   atletas            → a ficha de cada ginasta (nome, função, ano, foto)
+   treinadores        → a equipa técnica (são 16 no total)
+   patrocinadores     → as marcas que já apoiam, por nível
+   competicoes        → eventos realizados e próximos (também aceita foto,
+                        tal como atletas e treinadores — ver secção abaixo)
+   orcamento.angariado→ o valor já assegurado para o Mundial.
+                        É este número que enche a barra de progresso.
+                        Escreva só o número, sem € e sem pontos: 12500
+
+O QUE SÓ MUDA QUANDO O PROGRAMA FOR REVISTO:
+   niveis · contrapartidas · pacotes · orcamento.itens · fiscal · regras ·
+   numeros · canais · trajetoria · palmares
+
+
+--------------------------------------------------
+FOTOS E LOGÓTIPOS
+--------------------------------------------------
+- Todas as imagens ficam na pasta "imagens" (ao lado do index.html).
+- No dados.js escreva o caminho, ex.:  foto: "imagens/maria.jpg"
+- Se deixar em branco ("") aparece um espaço reservado elegante, por isso
+  pode preencher aos poucos.
+- Isto aplica-se a atletas, treinadores E também a cada evento em
+  "competicoes" (mesmo campo "foto"). Ex.:
+     { titulo: "Gala de Natal", ..., foto: "imagens/gala-natal.jpg" }
+  Se não puser "foto" (ou deixar ""), o cartão do evento mostra um ícone
+  de câmara em vez de imagem — como acontecia até agora em todos os eventos.
+- As imagens fixas do site (logótipos e ilustração) trocam-se no topo do
+  dados.js, na secção "imagens". Já NÃO é preciso abrir o index.html.
+
+
+--------------------------------------------------
+PATROCINADORES POR NÍVEL
+--------------------------------------------------
+Cada patrocinador tem um "nivel": "diamante", "ouro", "prata" ou "bronze".
+O site organiza-os numa árvore (Diamante no topo, com o logótipo maior) e
+mostra "Vaga disponível" nos níveis ainda por preencher.
+
+
+--------------------------------------------------
+FORMULÁRIO "FALE CONNOSCO"
+--------------------------------------------------
+Existe UM só formulário, com um campo "Assunto" no topo:
+
+  - "Quero ser patrocinador"    -> mostra Empresa e Nível de interesse
+  - "Apoiar a World Gymnaestrada 2027" -> mostra os pacotes do Mundial
+  - "Inscrições / aulas"        -> só nome, e-mail e mensagem
+  - "Imprensa / comunicação"    -> pede Meio/Publicação em vez de Empresa
+  - "Outro assunto"             -> contacto simples
+
+A lista de "Nível de interesse" é construída automaticamente a partir dos
+níveis e dos pacotes definidos no dados.js — não precisa de a manter à mão.
+Os botões "Quero este nível" em cada cartão abrem o formulário já com esse
+nível selecionado.
+
+NOTA IMPORTANTE: o formulário valida os dados e mostra uma confirmação, mas
+NÃO envia e-mails sozinho (um site estático não o faz). Para receber mesmo as
+mensagens é preciso ligá-lo a um serviço de envio (ex.: Formspree, Getform)
+ou substituí-lo por um link mailto.
+
+
+--------------------------------------------------
+DOCUMENTO PDF DO PROGRAMA
+--------------------------------------------------
+- Fica na pasta "arquivos/", com o nome ARTIESAS-Programa-de-Parceiros.pdf
+- O caminho e o texto do botão estão no dados.js, na secção "arquivos":
+     programa     -> caminho do PDF
+     programaInfo -> texto por baixo do botão (ex.: nº de páginas)
+- Para atualizar: ponha o novo PDF na pasta e, se o nome mudar, corrija o
+  caminho no dados.js.
+
+
+--------------------------------------------------
+ENVIAR O PORTAL NUM SÓ FICHEIRO
+--------------------------------------------------
+Para mandar o portal a alguém por e-mail ou WhatsApp — sem pastas e sem
+alojamento — use o script "empacotar.py", que junta tudo (index.html,
+dados.js, imagens e o PDF) num único ficheiro HTML:
+
+    python3 empacotar.py
+
+Gera o "ARTIESAS-portal-completo.html" (cerca de 0,8 MB). Quem o receber
+abre-o com duplo clique e navega em tudo: todas as secções, os separadores,
+a tabela de contrapartidas, o formulário e o botão que descarrega o PDF do
+programa. Não precisa de internet nem de instalar nada — apenas os tipos de
+letra é que vêm da internet; sem ligação, o texto aparece com um tipo de
+letra do sistema e o resto fica igual.
+
+IMPORTANTE: esse ficheiro é uma FOTOGRAFIA do portal no momento em que o
+gerou. Nunca o edite à mão. Sempre que mudar o dados.js, volte a correr o
+script para gerar uma versão nova.
+
+(O script precisa de Python 3. A biblioteca Pillow é opcional: se estiver
+instalada, as imagens são otimizadas e o ficheiro fica bastante mais leve.)
+
+--------------------------------------------------
+PUBLICAR ONLINE
+--------------------------------------------------
+Envie o index.html, o dados.js e as pastas "imagens" e "arquivos" para o
+alojamento, mantendo-os todos na mesma pasta. Funciona também localmente,
+abrindo o index.html no navegador — se as fotos não aparecerem localmente,
+é apenas uma limitação do navegador; online funcionam sempre.
