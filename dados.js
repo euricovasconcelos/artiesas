@@ -382,7 +382,7 @@ const DADOS = {
     { nome: "Maria Inês",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img18.jpg" },
     { nome: "Maria Pereira",  atuacao: "ginasta - volante",    desde: "-", foto: "imagens/img19.jpg" },
     { nome: "Yasmin",  atuacao: "ginasta - volante",    desde: "-", foto: "imagens/img20.jpg" },
-    { nome: "Ires Pereira",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img21.jpg" },
+    { nome: "Iris Pereira",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img21.jpg" },
     { nome: "Maria Inês",  atuacao: "ginasta - volante",    desde: "-", foto: "imagens/img22.jpg" },
     { nome: "Beatriz Costa",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img23.jpg" },
     { nome: "Mariana Gomes",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img24.jpg" },
