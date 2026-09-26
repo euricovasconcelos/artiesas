@@ -95,6 +95,11 @@
   .eco-card li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;background:var(--gold)}
   .eco-plus{display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--gold);font-family:'Fraunces',serif;font-size:34px;padding:0 26px}
   .eco-note{margin-top:22px;font-size:14.5px;color:var(--grey);border-left:3px solid var(--gold);padding-left:16px;max-width:820px}
+  .team-photo{margin:48px 0 0}
+  .team-photo img{display:block;width:100%;max-width:1024px;height:auto;margin:0 auto;mix-blend-mode:multiply}
+  .team-photo figcaption{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px;font-size:15px;color:var(--ink);text-align:center}
+  .team-photo figcaption b{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep)}
+  @media (max-width:640px){.team-photo{margin-top:34px}.team-photo figcaption{font-size:14px;gap:6px;flex-direction:column}}
 
   /* TIMELINE */
   .timeline{position:relative;margin-top:8px;padding-left:4px}
@@ -356,6 +361,8 @@
   .form-msg.err{color:#B4444A}
   .form-msg.ok{color:#1E7A44}
   .form-note{font-size:12px;color:var(--grey);margin-top:16px;line-height:1.5}
+  .form-note.form-fallback{font-size:13px;color:var(--ink);background:var(--paper);border-left:3px solid var(--gold);padding:10px 14px;border-radius:2px}
+  .form-note.form-fallback a{color:var(--navy2);font-weight:700;text-decoration:underline}
 
   /* FOOTER */
   footer{background:#0A1330;color:#8FA0B8;padding:70px 0 34px}
@@ -575,6 +582,10 @@
       </div>
     </div>
     <p class="eco-note">A estas instituições junta-se a <strong>Associação de Pais</strong>, que apoia, articula e patrocina a equipa. Para uma empresa, esta é uma história de marca poderosa: apoiar a ARTIESAS é apoiar um modelo de eficiência de recursos públicos, de parceria entre instituições e de acesso ao desporto independentemente da condição económica das famílias.</p>
+    <figure class="team-photo">
+      <img data-img="fotoEquipa" src="imagens/equipa-artiesas.jpg" alt="Equipa de ginástica ARTIESAS reunida, com os fatos de competição" loading="lazy" width="1024" height="540">
+      <figcaption><b>O resultado</b> 440 atletas em formação e 43 a caminho da World Gymnaestrada 2027.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -801,7 +812,8 @@
         <div class="field"><label for="fMsg">Mensagem <span style="text-transform:none;font-weight:400">(opcional)</span></label><textarea id="fMsg" rows="3" placeholder="Como podemos ajudar?"></textarea></div>
         <div class="form-msg" id="formMsg"></div>
         <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitContact()">Enviar mensagem</button>
-        <p class="form-note">Ao enviar, os seus dados são encaminhados por e-mail à coordenação da ARTIESAS. Não partilhamos os seus contactos com terceiros.</p>
+        <p class="form-note form-fallback">Caso ocorra algum problema com o envio da sua mensagem, envie-a diretamente para <a href="mailto:aesas2027@gmail.com">aesas2027@gmail.com</a>.</p>
+        <p class="form-note">Ao clicar em «Enviar mensagem», abre-se o seu programa de e-mail com a mensagem já preenchida — basta confirmar o envio. Não partilhamos os seus contactos com terceiros.</p>
       </div>
     </div>
   </div>
@@ -1035,6 +1047,7 @@ function renderRedes(r){
 }
 
 /* ---- formulário ---- */
+var CONTACT_EMAIL='aesas2027@gmail.com';
 var CONTACT_UI={
   patrocinio:{titulo:"Quero ser patrocinador",sub:"Preencha o formulário e entramos em contacto para apresentar a proposta.",empresa:true,nivel:true,empresaLabel:"Empresa",msgPlaceholder:"Como gostaria de apoiar a equipa?",ok:"Pedido enviado. A coordenação entrará em contacto em breve."},
   mundial:{titulo:"Apoiar a World Gymnaestrada 2027",sub:"Escolha o pacote de apoio ao Mundial e entramos em contacto.",empresa:true,nivel:true,empresaLabel:"Empresa / Nome",msgPlaceholder:"Que tipo de apoio gostaria de dar?",ok:"Pedido enviado. A coordenação entrará em contacto em breve."},
@@ -1081,8 +1094,25 @@ function submitContact(){
     msg.className='form-msg err';msg.textContent='Indique o nome da empresa.';return;
   }
   if(!emailOk){msg.className='form-msg err';msg.textContent='Verifique o e-mail introduzido.';return;}
-  msg.className='form-msg ok'; msg.textContent=cfg.ok;
-  ['fCompany','fName','fEmail','fPhone','fMsg'].forEach(function(id){el(id).value='';});
+
+  // Monta o e-mail e abre o programa de e-mail do utilizador (mailto)
+  var empresa=el('fCompany').value.trim(), tel=el('fPhone').value.trim(), texto=el('fMsg').value.trim();
+  var assuntoTxt=sel.options[sel.selectedIndex].text;
+  var linhas=['Assunto: '+assuntoTxt];
+  if(cfg.empresa && empresa) linhas.push(cfg.empresaLabel+': '+empresa);
+  linhas.push('Nome: '+n);
+  linhas.push('E-mail: '+e);
+  if(tel) linhas.push('Telefone: '+tel);
+  if(cfg.nivel && el('fTier').value) linhas.push('Nível de interesse: '+el('fTier').value);
+  if(texto){ linhas.push(''); linhas.push('Mensagem:'); linhas.push(texto); }
+  var subject='[Portal ARTIESAS] '+assuntoTxt+' - '+(empresa||n);
+  var href='mailto:'+CONTACT_EMAIL
+          +'?subject='+encodeURIComponent(subject)
+          +'&body='+encodeURIComponent(linhas.join('\r\n'));
+  window.location.href=href;
+
+  msg.className='form-msg ok';
+  msg.textContent='A abrir o seu programa de e-mail... Confirme o envio da mensagem. Se nada abrir, escreva para '+CONTACT_EMAIL+'.';
 }
 
 /* ---- arranque ---- */
