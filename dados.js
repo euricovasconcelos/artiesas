@@ -368,7 +368,7 @@ const DADOS = {
     { nome: "Mafalda Cunha",    atuacao: "ginasta - base",    desde: "-", foto: "imagens/img4.jpg" },
     { nome: "Francisca Morais",     atuacao: "ginasta - volante",    desde: "- 2019", foto: "imagens/img5.jpg" },
     { nome: "Camila Salgueiro",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img6.jpg" },
-    { nome: "Margarida coimbra",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img7.jpg" },
+    { nome: "Margarida coimbra",  atuacao: "ginasta - base",    desde: "- 2018", foto: "imagens/img7.jpg" },
     { nome: "Matilde Cunha",  atuacao: "ginasta - volante",    desde: "-", foto: "imagens/img8.jpg" },
     { nome: "Leonor Ferreira",  atuacao: "ginasta - base",    desde: "-", foto: "imagens/img9.jpg" },
     { nome: "Inês Veloso",  atuacao: "ginasta - volante",    desde: "- 2018", foto: "imagens/img10.jpg" },
@@ -415,6 +415,7 @@ const DADOS = {
                tal como acontece com as fotos de treinadores e atletas.
   ========================================================================== */
   competicoes: [
+    { titulo: "XXV Gala do Desporto da Universidade do Minho 2026",        data: "Novembro de 2026", local: "Braga",    descricao: "XXV Gala do Desporto da Universidade do Minho.", tag: "Apresentação",    estado: "realizada", foto: "imagens/galadodesporto2026.jpg" },
     { titulo: "Gym for Life Portugal 2026",        data: "2026", local: "Odivelas",    descricao: "Menção Ouro no concurso nacional de Ginástica para Todos e qualificação para a Seleção Nacional.", tag: "Competição",    estado: "realizada", foto: "imagens/gymforlifeportual.jpeg" },
     { titulo: "Gym for Life Territorial 2026",     data: "2026", local: "Matosinhos",  descricao: "Ouro na fase territorial — o quarto ouro consecutivo do grupo.",                                  tag: "Competição",    estado: "realizada", foto: "imagens/gymforlifeTerritorial2026.png" },
     { titulo: "Festa Nacional da Ginástica 2026",  data: "2026", local: "Espinho",     descricao: "Presença na maior celebração nacional da modalidade.",                                             tag: "Gala",          estado: "realizada", foto: "imagens/festanacionaldeginastica.jpg" },
